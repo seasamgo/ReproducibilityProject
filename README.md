@@ -1,6 +1,6 @@
 ## Final Project
 
-This will serve as a repository for your final project. Only the instructor, TA and you have access to it. All other students are **not** able to view any of your files. By the last day of class (October 19th), your repository will need to include the following files:
+This will serve as a repository for your final project. Only the instructor, TA and you have access to it. All other students are **not** able to view any of your files. By the last day of class (**October 19th**), your repository will need to include the following files:
 
 * A **README file** (replace the text in this file) that briefly describes the files in the repository. Information should include the name of the file and the type of file it is, i.e. data file, lab notebook, data dictionary, driver script, etc.
 * A **data file**. If you synthesized your own data, please copy it to a file and it include it in the repository. If the data is too big to include here, please mention that in the README file and provide a link to it if possible.
