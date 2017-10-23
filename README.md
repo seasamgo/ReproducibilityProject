@@ -1,10 +1,39 @@
-## Final Project
 
-This will serve as a repository for your final project. Only the instructor, TA and you have access to it. All other students are **not** able to view any of your files. By the last day of class (**October 19th**), your repository will need to include the following files:
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+README
+------
 
-* A **README file** (replace the text in this file) that briefly describes the files in the repository. Information should include the name of the file and the type of file it is, i.e. data file, lab notebook, data dictionary, driver script, etc.
-* A **data file**. If you synthesized your own data, please copy it to a file and it include it in the repository. If the data is too big to include here, please mention that in the README file and provide a link to it if possible.
-* A **data dictionary**. This should include the variable names, descriptions (what the variables represent and the possible values they can take) and types. Be sure to include if a variable was a predictor or outcome of interest, and if it is binary, categorical, continuous, etc.
-* A **lab notebook**. This file should contain the text for the abstract, introduction, methods, results and conclusion sections as well as all code used during analysis. This document should also include any tables, figures or other visuals. Remember to comment your code.
-* A **driver script** (optional). If you have created a driver script that runs separate files and produces some output, please provide it with details of what files are being run and why.
-* Your **final presentation**. This can be a powerpoint presentation, beamer presentation, etc.
+This repository contains the R and data source files for the attached work-in-progress paper reformatted as a reproducible research project for BST 270, FALL 2017. In order to use these files, each should be present in the current R working directory. A brief summary is as follows (with detailed descriptions for each R function within their respective files):
+
+-   `sim_functions.R` contains the plotting function `plot.survival` used in the Rmd file to plot the confidence band estimates. It also contains the simulation functions necessary to replicate the tables displayed in the paper, as described below.
+-   `R01-SAVOR.csv` contains the clinical trial data set evaluated in the paper.
+    -   Column 1 is defined as the time to event.
+    -   Column 2 indicates censored event status (0 censored and 1 observed).
+    -   Column 3 indicates treatment arm (0 placebo and 1 treatment).
+-   `critval.csv` contains the simulated coverage table described in the appendix.
+-   `kappa_computation.R` may be used to simulate this coverage table.
+-   `kappa_functional_fitting.R` may be used to empirically evaluate the `a` and `b` values determined for the corresponding functional form of *κ*.
+
+Data and Simulation
+-------------------
+
+The `sim_functions.R` file contains the following functions for simulation:
+
+-   `gen.data` generates the exponentially distributed failure-time data sets described in the Methods section
+-   `band.sim` simulates and evaluates within-confidence-band area for a given method
+-   `coverage.sim` simulates and evaluates the attained coverage for a given method
+-   `compare.sim` pairs the area and coverage simulations to compare across methods
+-   `table.sim` combines all of these functions to reproduce the tabled results displayed in the paper
+
+R Packages
+----------
+
+The following packages are required for these methods and the knitted project:
+
+-   `utils`
+-   `stats`
+-   `LambertW`
+-   `survival`
+-   `km.ci`
+-   `optband`
+-   `gplots`

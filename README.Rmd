@@ -1,0 +1,50 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+
+```
+
+## README
+
+This repository contains the R and data source files for the attached work-in-progress paper reformatted as a reproducible research project for BST 270, FALL 2017. In order to use these files, each should be present in the current R working directory. A brief summary is as follows (with detailed descriptions for each R function within their respective files):
+
+- `sim_functions.R` contains the plotting function `plot.survival` used in the Rmd file to plot the confidence band estimates. It also contains the simulation functions necessary to replicate the tables displayed in the paper, as described below.
+- `R01-SAVOR.csv` contains the clinical trial data set evaluated in the paper.
+    - Column 1 is defined as the time to event.
+    - Column 2 indicates censored event status (0 censored and 1 observed).
+    - Column 3 indicates treatment arm (0 placebo and 1 treatment).
+- `critval.csv` contains the simulated coverage table described in the appendix.
+- `kappa_computation.R` may be used to simulate this coverage table.
+- `kappa_functional_fitting.R` may be used to empirically evaluate the `a` and `b` values determined for the corresponding functional form of $\kappa$.
+
+## Data and Simulation
+
+The `sim_functions.R` file contains the following functions for simulation:
+
+- `gen.data` generates the exponentially distributed failure-time data sets described in the Methods section
+- `band.sim` simulates and evaluates within-confidence-band area for a given method
+- `coverage.sim` simulates and evaluates the attained coverage for a given method
+- `compare.sim` pairs the area and coverage simulations to compare across methods
+- `table.sim` combines all of these functions to reproduce the tabled results displayed in the paper
+
+## R Packages
+
+The following packages are required for these methods and the knitted project:
+
+- `utils`
+- `stats`
+- `LambertW`
+- `survival`
+- `km.ci`
+- `optband`
+- `gplots`
+
